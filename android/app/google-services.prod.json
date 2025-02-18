@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "343628266929",
+    "project_id": "dehydrator-app",
+    "storage_bucket": "dehydrator-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:343628266929:android:91bc024f36863e66b15190",
+        "android_client_info": {
+          "package_name": "com.dehydratormobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "343628266929-nmmcmha4fesu8jk6v3uq4ab3iv8j19ac.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dehydratormobile",
+            "certificate_hash": "5e16cb0698cc4b102fa374f5a2b01e312b6b8166"
+          }
+        },
+        {
+          "client_id": "343628266929-beq3vvclirdl5mo0rtgvdcicq806ifd3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLSaat7QrwZIMttwk_6oEFYi1ktUa_8qo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "343628266929-beq3vvclirdl5mo0rtgvdcicq806ifd3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
