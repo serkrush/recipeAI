@@ -22,7 +22,7 @@ export default function WelcomeSliderItem({
                 flex: 1,
                 justifyContent: 'flex-end',
                 alignItems: 'center',
-                marginBottom: 50
+                marginBottom: 186
             }}>
             <BackgroundView source={image} />
             <Text
@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         letterSpacing: -0.02 * 18,
         color: palette.white,
-        opacity: 0.64
+        opacity: 0.64,
+        marginTop: 8
     },
 });

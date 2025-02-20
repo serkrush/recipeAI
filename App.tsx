@@ -27,9 +27,19 @@ import './src/i18n';
 
 ///!!! TODO  REMOVE THIS LINE !!!!!!
 import {LogBox} from 'react-native';
-import Onboarding from 'src/screens/login/Onboarding';
 import {setBox} from 'src/store/actions';
 import NetInfo from '@react-native-community/netinfo';
+import Accomplish from 'src/screens/login/Accomplish';
+import Age from 'src/screens/login/Age';
+import Gender from 'src/screens/login/Gender';
+import Goal from 'src/screens/login/Goal';
+import Lifestyle from 'src/screens/login/Lifestyle';
+import LoveRecipeAI from 'src/screens/login/LoveRecipeAI';
+import MealApps from 'src/screens/login/MealApps';
+import Notifications from 'src/screens/login/Notifications';
+import SprcificDiet from 'src/screens/login/SprcificDiet';
+import StoppingYou from 'src/screens/login/StoppingYou';
+import Weight from 'src/screens/login/Weight';
 
 LogBox.ignoreAllLogs();
 
@@ -117,10 +127,27 @@ function App(): React.JSX.Element {
                             <ContainerContext.Provider value={container}>
                                 <Stack.Navigator
                                     initialRouteName="Welcome"
+                                    // screenOptions={{
+                                    //     gestureEnabled: true,
+                                    //     cardStyleInterpolator: ({ current, layouts }) => ({
+                                    //         cardStyle: {
+                                    //             transform: [
+                                    //                 {
+                                    //                     translateX: current.progress.interpolate({
+                                    //                         inputRange: [0, 1],
+                                    //                         outputRange: [layouts.screen.width, 0],
+                                    //                     }),
+                                    //                 },
+                                    //             ],
+                                    //         },
+                                    //     }),
+                                    // }}
                                     screenOptions={{
                                         gestureEnabled: false,
                                         fullScreenGestureEnabled: false,
-                                    }}>
+                                        animation: 'slide_from_right',
+                                    }}
+                                    >
                                     <Stack.Screen
                                         name="Tabs"
                                         component={Tabs}
@@ -129,13 +156,65 @@ function App(): React.JSX.Element {
                                     <Stack.Screen
                                         name="Welcome"
                                         component={Welcome}
+                                        
+                                        options={{headerShown: false,}}
+                                    />
+                                    <Stack.Screen
+                                        name="Accomplish"
+                                        component={Accomplish}
+                                        options={{headerShown: false, animation: 'fade',}}
+                                    />
+                                    <Stack.Screen
+                                        name="Age"
+                                        component={Age}
+                                        options={{headerShown: false, animation: 'fade',}}
+                                    />
+                                    <Stack.Screen
+                                        name="Gender"
+                                        component={Gender}
+                                        options={{headerShown: false, }}
+                                    />
+                                    <Stack.Screen
+                                        name="Goal"
+                                        component={Goal}
+                                        options={{headerShown: false, animation: 'fade',}}
+                                    />
+                                    <Stack.Screen
+                                        name="Lifestyle"
+                                        component={Lifestyle}
+                                        options={{headerShown: false, animation: 'fade',}}
+                                    />
+                                    <Stack.Screen
+                                        name="LoveRecipeAI"
+                                        component={LoveRecipeAI}
+                                        options={{headerShown: false, animation: 'fade',}}
+                                    />
+                                    <Stack.Screen
+                                        name="MealApps"
+                                        component={MealApps}
+                                        options={{headerShown: false, animation: 'fade',}}
+                                    />
+                                    <Stack.Screen
+                                        name="Notifications"
+                                        component={Notifications}
                                         options={{headerShown: false}}
                                     />
                                     <Stack.Screen
-                                        name="Onboarding"
-                                        component={Onboarding}
-                                        options={{headerShown: false}}
+                                        name="SprcificDiet"
+                                        component={SprcificDiet}
+                                        options={{headerShown: false, animation: 'fade',}}
                                     />
+                                    <Stack.Screen
+                                        name="StoppingYou"
+                                        component={StoppingYou}
+                                        options={{headerShown: false, animation: 'fade',}}
+                                    />
+                                    <Stack.Screen
+                                        name="Weight"
+                                        component={Weight}
+                                        options={{headerShown: false, animation: 'fade',}}
+                                    />
+                                    
                                 </Stack.Navigator>
                             </ContainerContext.Provider>
                         </>
