@@ -15,6 +15,7 @@ interface QuestionnaireLayoutProps {
     children?: React.ReactNode;
     backButton?: boolean;
     textHeaderStyle?: object;
+    activeNextBtn?: boolean;
 }
 
 const QuestionnaireLayout: React.FC<QuestionnaireLayoutProps> = ({
@@ -25,6 +26,7 @@ const QuestionnaireLayout: React.FC<QuestionnaireLayoutProps> = ({
     children,
     backButton = true,
     textHeaderStyle = {},
+    activeNextBtn = true,
 }) => {
     const {t} = useTranslation();
     const di = useContext(ContainerContext);
@@ -56,7 +58,8 @@ const QuestionnaireLayout: React.FC<QuestionnaireLayoutProps> = ({
             <View style={styles.footer}>
                 <ButtonForm
                     text={t('continue')}
-                    actionButton={() => navigator.navigate(screenNavigate)}
+                    style={{opacity: activeNextBtn ? 1 : 0.8}}
+                    actionButton={() => activeNextBtn && navigator.navigate(screenNavigate)}
                 />
             </View>
         </View>

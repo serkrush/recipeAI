@@ -24,9 +24,6 @@ export default class UserEntity extends BaseEntity<UserEntity> {
         );
 
         this.getUserDetailed = this.getUserDetailed.bind(this);
-        this.inviteAcceptCompletion = this.inviteAcceptCompletion.bind(this);
-        this.transferRightsCompletion =
-            this.transferRightsCompletion.bind(this);
         this.getCurrentUserDetailed = this.getCurrentUserDetailed.bind(this);
         this.clearCurrentUserAccess = this.clearCurrentUserAccess.bind(this);
     }

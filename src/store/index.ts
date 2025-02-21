@@ -32,6 +32,8 @@ const persistConfig: PersistConfig<AppState> = {
     whitelist: [
         ENTITY.IDENTITY,
         ENTITY.USER,
+        ENTITY.RECIPE,
+        ENTITY.FORM_REGISTER,
         'flagger',
         'box',
         ENTITY.NOTIFICATION,

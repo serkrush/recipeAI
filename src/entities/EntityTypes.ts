@@ -30,6 +30,21 @@ export interface IUserEntity {
     emailSettings?: number;
 }
 
+export interface IRecipeEntity {
+    name: string;
+}
+export interface IFormRegisterEntity {
+    gender: string;
+    lifestyle: string;
+    mealApps: string;
+    goal: string;
+    age: number;
+    weight: number;
+    cause: string;
+    diet: string;
+    accomplish: string;
+}
+
 export enum IngredientActionType {
     Ingredient = 'ingredient',
     Method = 'method',
@@ -70,4 +85,10 @@ export type TUserEntities = {
     [key: string]: IUserEntity;
 };
 
+export type TRecipeEntities = {
+    [key: string]: IRecipeEntity;
+};
 
+export type TFormRegisterEntities = {
+    [key: string]: IFormRegisterEntity;
+};

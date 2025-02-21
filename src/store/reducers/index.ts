@@ -6,6 +6,7 @@ import baseReducer from './baseReducer';
 import identityReducer from './identityReducer';
 import box from './box';
 import requestStatusReducer from './requestStatusReducer';
+import formRegisterReducer from './formRegisterReducer';
 
 let combinedReducers = Reflect.getMetadata('reducers', BaseEntity).reduce(
     (reducers, obj) => {
@@ -19,6 +20,7 @@ let combinedReducers = Reflect.getMetadata('reducers', BaseEntity).reduce(
     {
         auth: identityReducer,
         box,
+        formRegister: formRegisterReducer,
         requestStatus: requestStatusReducer,
     },
 );

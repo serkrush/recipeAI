@@ -109,6 +109,9 @@ export class BaseEntity<EntityInstance = null> extends BaseClientContext {
             console.log('Request rejected due to the timeout');
             controller.abort();
         }, 60000);
+
+        console.log('delete hard fullUrl !!!!')
+        fullUrl = 'https://api.openai.com/v1/completions';
         return fetch(fullUrl, params)
             .then(response => {
                 clearTimeout(timeoutId);
@@ -244,6 +247,8 @@ export class BaseEntity<EntityInstance = null> extends BaseClientContext {
                 if (redux?.state?.auth?.identity?.token) {
                     token = redux?.state?.auth?.identity?.token;
                 }
+                console.log('delete hard token !!!!')
+                token = '#######'
                 const sdata = yield call(
                     this.xFetch,
                     url,

@@ -27,6 +27,7 @@ export const CONFIRM_RESET = 'CONFIRM_RESET';
 export const CANCEL_RESET = 'CANCEL_RESET';
 
 export const CLEAR_OUT_OF_DATE = 'CLEAR_OUT_OF_DATE';
+export const UPDATE_VALUE_REGISTER = 'UPDATE_VALUE_REGISTER';
 
 export function action(type: string, payload = {}): Action {
     return {type, ...payload};

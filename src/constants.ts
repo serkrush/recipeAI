@@ -2,6 +2,8 @@ import {ReactNode} from 'react';
 import {
     TCycleEntities,
     TUserEntities,
+    TRecipeEntities,
+    TFormRegisterEntities
 } from './entities/EntityTypes';
 import {AuthState, RequestStatusState} from './store/types/stateTypes';
 import {ViewStyle} from 'react-native';
@@ -14,6 +16,8 @@ export enum AuthType {
 }
 
 export enum ENTITY {
+    RECIPE = 'recipes',
+    FORM_REGISTER = 'formRegister',
     USER = 'users',
     IDENTITY = 'identity',
     GROUP = 'groups',
@@ -123,6 +127,8 @@ export interface AppState {
     auth: AuthState;
     requestStatus: RequestStatusState;
     [ENTITY.USER]: TUserEntities;
+    [ENTITY.RECIPE]: TRecipeEntities;
+    [ENTITY.FORM_REGISTER]: TFormRegisterEntities;
     [ENTITY.Cycle]: TCycleEntities;
 }
 
