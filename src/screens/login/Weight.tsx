@@ -1,24 +1,41 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {Text, TextInput, View} from 'react-native';
-import Carousel from 'pinar';
-import ModalDropdown from 'react-native-modal-dropdown';
-import i18next from 'i18next';
+import React, {useContext} from 'react';
+import {TextInput, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import ContainerContext from 'src/ContainerContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppState } from 'src/constants';
+import { UPDATE_VALUE_REGISTER } from 'src/store/actions'
 import BaseScreenLayout from 'src/components/layouts/BaseScreenLayout';
 import QuestionnaireLayout from 'src/components/layouts/QuestionnaireLayout';
-import ButtonForm from 'src/components/Form/ButtonForm';
-import WelcomeSliderItem from 'src/components/WelcomeSliderItem';
-import ArrowDown from '../../../assets/svg/ArrowDown';
 import {images} from 'src/theme/images';
 import palette from 'src/theme/colors/palette';
-import {families} from 'src/theme';
 
 export default function Weight() {
-    const di = useContext(ContainerContext);
-    const navigator = di.resolve('navigator');
     const {t} = useTranslation();
 
+    const formRegister = useSelector((state: AppState) => state.formRegister);
+    const dispatch = useDispatch();
+
+    const handleChange = (text: string) => {
+        const weight = parseInt(text, 10);
+
+        if (!isNaN(weight)) {
+            dispatch({
+                type: UPDATE_VALUE_REGISTER,
+                payload: {
+                    ...formRegister,
+                    weight: weight,
+                },
+            });
+        } else {
+            dispatch({
+                type: UPDATE_VALUE_REGISTER,
+                payload: {
+                    ...formRegister,
+                    weight: 0,
+                },
+            });
+        }
+    };
     return (
         <BaseScreenLayout
             containerStyle={{
@@ -27,7 +44,8 @@ export default function Weight() {
             }}>
             <QuestionnaireLayout
                 title={t('whats-your-weight')}
-                imageBar={images.bar5}
+                imageBar={images.bar6}
+                activeNextBtn={!!formRegister?.weight && formRegister.weight > 0}
                 screenNavigate="StoppingYou"
                 textHeaderStyle={{textAlign: 'center'}}>
                 <View
@@ -46,6 +64,8 @@ export default function Weight() {
                         placeholder="0"
                         placeholderTextColor={palette.white064}
                         autoFocus={true}
+                        onChangeText={handleChange}
+                        value={formRegister?.weight ? formRegister.weight.toString() : ''}
                     />
                 </View>
             </QuestionnaireLayout>

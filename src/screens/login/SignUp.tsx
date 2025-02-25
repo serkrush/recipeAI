@@ -9,8 +9,10 @@ import palette from 'src/theme/colors/palette';
 import { families } from 'src/theme';
 import BackgroundView from 'src/components/BackgroundView';
 import HeaderProgressBar from 'src/components/layouts/HeaderProgressBar';
+import Google from '../../../assets/svg/Google';
+import Apple from '../../../assets/svg/Apple';
 
-export default function LoveRecipeAI() {
+export default function SignUp() {
     const di = useContext(ContainerContext);
     const navigator = di.resolve('navigator');
     const { t } = useTranslation();
@@ -25,13 +27,11 @@ export default function LoveRecipeAI() {
                 flex: 1,
                 paddingHorizontal: 24,
                 paddingVertical: 20,
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
             }}>
-                <BackgroundView source={images.loveRecipeAIBg} />
+                <BackgroundView source={images.createAccount} />
                 <View>
-                    <HeaderProgressBar
-                        imageBar={images.bar10}
-                    />
+                    <HeaderProgressBar />
                 </View>
                 <View>
                     <Text
@@ -43,7 +43,7 @@ export default function LoveRecipeAI() {
                             textAlign: 'center',
                             paddingHorizontal: 40,
                         }}>
-                        {t('love-recipe-ai')}
+                        {t('create-account')}
                     </Text>
                     <Text
                         style={{
@@ -53,23 +53,30 @@ export default function LoveRecipeAI() {
                             lineHeight: 26,
                             opacity: 0.8,
                             textAlign: 'center',
-                            paddingHorizontal: 40,
                             marginTop: 8,
                         }}>
-                        {t('recommend-others')}
+                        {t('create-account-description')}
                     </Text>
                     <ButtonForm
-                        text={t('rate-us')}
-                        actionButton={() => console.log('rate us')}
-                        style={{ width: '100%', marginTop: 41 }}
-                    />
-                    <ButtonForm
-                        text={t('no-thank-you')}
-                        actionButton={() => navigator.navigate('Notifications')}
+                        icon={<Apple />}
+                        text={t('continue-with-apple')}
+                        actionButton={() => navigator.navigate('Tabs', { screen: 'Main' })}
                         style={{
                             width: '100%',
-                            backgroundColor: 'transparent',
+                            marginTop: 41, 
+                            backgroundColor: palette.white,
+                            borderRadius: 100,
+                        }}
+                    />
+                    <ButtonForm
+                        icon={<Google />}
+                        text={t('continue-with-google')}
+                        actionButton={() => navigator.navigate('Tabs', { screen: 'Main' })}
+                        style={{
+                            width: '100%',
+                            backgroundColor: palette.white008,
                             marginTop: 15,
+                            borderRadius: 28,
                         }}
                         styleText={{ color: palette.white }}
                     />

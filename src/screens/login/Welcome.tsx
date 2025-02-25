@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {Text, View} from 'react-native';
+import {Image, Platform, Text, View} from 'react-native';
 import Carousel from 'pinar';
 import ModalDropdown from 'react-native-modal-dropdown';
 import i18next from 'i18next';
@@ -18,7 +18,7 @@ export default function WelcomeScreen() {
     const [showSelect, setShowSelect] = useState(false);
     const di = useContext(ContainerContext);
     const navigator = di.resolve('navigator');
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
 
     const [currentLanguage, setCurrentLanguage] = useState('EN');
 
@@ -35,12 +35,20 @@ export default function WelcomeScreen() {
     const {getRecipeAI} = useActions('Recipes');
 
 
-
+    const [imageBase64, setImageBase64] = useState(null);
+    
     const fetchRecipes = async () => {
         console.log('fetchRecipes 1');
         try {
-            console.log('fetchRecipes 2');
-            getRecipeAI();
+            const imagePath = Platform.OS === 'android' ? 'img/example2.jpeg' : '../../assets/img/example2.jpeg';
+            // await encodeImageToBase64(imagePath);
+            // await encodeImageToBase64('https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg');
+            console.log('fetchRecipes 2', imageBase64);
+            // if (!imageBase64) {
+            //     console.error('imageBase64 is empty');
+            //     return;
+            // }
+            getRecipeAI(imagePath);
             console.log('fetchRecipes 3s');
         } catch (error) {
             console.error('error OpenAI:', error);
@@ -159,7 +167,10 @@ export default function WelcomeScreen() {
                         text={t('get-started')}
                         actionButton={() => navigator.navigate('Gender')}
                     />
-                    <ButtonForm text={'test recipe'} actionButton={fetchRecipes} />
+                    <ButtonForm
+                        text={'go main'}
+                        actionButton={() => navigator.navigate('Tabs', { screen: 'Main' })}
+                    />
                 </View>
             </View>
         </BaseScreenLayout>

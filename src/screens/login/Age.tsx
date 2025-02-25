@@ -14,23 +14,18 @@ export default function Age() {
     const formRegister = useSelector((state: AppState) => state.formRegister);
     const dispatch = useDispatch();
 
-    // Функция для обработки изменения текста
     const handleAgeChange = (text: string) => {
-        // Преобразуем текст в число
         const age = parseInt(text, 10);
 
-        // Проверяем, что введенное значение является числом
         if (!isNaN(age)) {
-            // Обновляем значение age в formRegister через dispatch
             dispatch({
                 type: UPDATE_VALUE_REGISTER,
                 payload: {
-                    ...formRegister, // Сохраняем остальные значения формы
-                    age: age, // Обновляем age
+                    ...formRegister,
+                    age: age,
                 },
             });
         } else {
-            // Если введенное значение не является числом, сбрасываем age в 0
             dispatch({
                 type: UPDATE_VALUE_REGISTER,
                 payload: {
@@ -40,7 +35,6 @@ export default function Age() {
             });
         }
     };
-    console.log('formRegister.age', formRegister.age)
     return (
         <BaseScreenLayout
             containerStyle={{
@@ -50,16 +44,16 @@ export default function Age() {
             <QuestionnaireLayout
                 title={t('whats-your-age')}
                 description={t('whats-your-age-description')}
-                imageBar={images.bar6}
+                imageBar={images.bar5}
                 activeNextBtn={!!formRegister?.age && formRegister.age > 0}
                 screenNavigate="Weight"
+                textHeaderDescriptionStyle={{ textAlign: 'center' }}
                 textHeaderStyle={{ textAlign: 'center' }}>
                 <View
                     style={{
                         flex: 1,
                         justifyContent: 'center',
                     }}>
-                    {/* Отображаем age как строку */}
                     <Text>{formRegister?.age?.toString()}</Text>
                     <TextInput
                         style={{
@@ -72,8 +66,8 @@ export default function Age() {
                         placeholder="0"
                         placeholderTextColor={palette.white064}
                         autoFocus={true}
-                        onChangeText={handleAgeChange} // Используем handleAgeChange
-                        value={formRegister?.age ? formRegister.age.toString() : ''} // Устанавливаем значение
+                        onChangeText={handleAgeChange}
+                        value={formRegister?.age ? formRegister.age.toString() : ''}
                     />
                 </View>
             </QuestionnaireLayout>

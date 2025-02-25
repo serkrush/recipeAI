@@ -10,11 +10,11 @@ import {UPDATE_VALUE_REGISTER} from 'src/store/actions';
 import { AppState } from 'src/constants';
 
 export default function Gender() {
-    const [selected, setSelected] = useState('');
-    const {t} = useTranslation();
     const formRegister = useSelector((state: AppState) => {
         return state.formRegister;
     });
+    const [selected, setSelected] = useState(formRegister?.gender);
+    const {t} = useTranslation();
 
     const options = [
         {id: 'male', label: t('male')},

@@ -14,4 +14,10 @@ export const images = {
     bar10: require('../../assets/img/bar10.png'),
     bar11: require('../../assets/img/bar11.png'),
     loveRecipeAIBg: require('../../assets/img/LoveRecipeAIBg.png'),
+    congratulations: require('../../assets/img/Congratulations.png'),
+    exampleScreen: require('../../assets/img/ExampleScreen.png'),
+    example1: require('../../assets/img/example1.png'),
+    example2: require('../../assets/img/example2.jpeg'),
+    createAccount: require('../../assets/img/CreateAccount.png'),
+    add: require('../../assets/img/add.png'),
 };

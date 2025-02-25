@@ -1,18 +1,9 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {Text, View} from 'react-native';
-import Carousel from 'pinar';
-import ModalDropdown from 'react-native-modal-dropdown';
-import i18next from 'i18next';
+import React, {useState} from 'react';
+import {View} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import ContainerContext from 'src/ContainerContext';
 import BaseScreenLayout from 'src/components/layouts/BaseScreenLayout';
 import QuestionnaireLayout from 'src/components/layouts/QuestionnaireLayout';
-import ButtonForm from 'src/components/Form/ButtonForm';
-import WelcomeSliderItem from 'src/components/WelcomeSliderItem';
-import ArrowDown from '../../../assets/svg/ArrowDown';
 import {images} from 'src/theme/images';
-import palette from 'src/theme/colors/palette';
-import {families} from 'src/theme';
 import LoseWeight from '../../../assets/svg/LoseWeight';
 import BeMoreHealthy from '../../../assets/svg/BeMoreHealthy';
 import GainWeight from '../../../assets/svg/GainWeight';
@@ -24,7 +15,10 @@ import {AppState} from 'src/constants';
 import {UPDATE_VALUE_REGISTER} from 'src/store/actions';
 
 export default function Goal() {
-    const [selected, setSelected] = useState('');
+    const formRegister = useSelector((state: AppState) => {
+        return state.formRegister;
+    });
+    const [selected, setSelected] = useState(formRegister?.goal);
     const {t} = useTranslation();
 
     const options = [
@@ -54,9 +48,6 @@ export default function Goal() {
             icon: <Other />,
         },
     ];
-    const formRegister = useSelector((state: AppState) => {
-        return state.formRegister;
-    });
     const dispatch = useDispatch();
     const handleSelect = (id: string) => {
         setSelected(id);

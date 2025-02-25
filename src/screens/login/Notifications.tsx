@@ -1,21 +1,18 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {Text, View} from 'react-native';
-import Carousel from 'pinar';
-import ModalDropdown from 'react-native-modal-dropdown';
-import i18next from 'i18next';
-import {useTranslation} from 'react-i18next';
-import ContainerContext from 'src/ContainerContext';
+import React, { useContext } from 'react';
+import { Text, View } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import BaseScreenLayout from 'src/components/layouts/BaseScreenLayout';
-import QuestionnaireLayout from 'src/components/layouts/QuestionnaireLayout';
 import ButtonForm from 'src/components/Form/ButtonForm';
-import WelcomeSliderItem from 'src/components/WelcomeSliderItem';
-import ArrowDown from '../../../assets/svg/ArrowDown';
-import {images} from 'src/theme/images';
 import palette from 'src/theme/colors/palette';
-import {families} from 'src/theme';
+import { families } from 'src/theme';
+import ContainerContext from 'src/ContainerContext';
+import HeaderProgressBar from 'src/components/layouts/HeaderProgressBar';
+import { images } from 'src/theme/images';
 
 export default function Notifications() {
+    const { t } = useTranslation();
     const di = useContext(ContainerContext);
+    const navigator = di.resolve('navigator');
 
     return (
         <BaseScreenLayout
@@ -23,9 +20,45 @@ export default function Notifications() {
                 paddingHorizontal: 0,
                 paddingVertical: 0,
             }}>
-            <QuestionnaireLayout title={'tttt'} description={'sssss'} imageBar={images.bar1}>
-                <Text style={{color: palette.white}}>1111</Text>
-            </QuestionnaireLayout>
+            <View style={{
+                flex: 1,
+                paddingHorizontal: 24,
+                paddingVertical: 20,
+                justifyContent: 'space-between'
+            }}>
+                <View>
+                    <HeaderProgressBar
+                        imageBar={images.bar11}
+                        title={t('cook-better-with-notifications')}
+                        textHeaderStyle={{ textAlign: 'center' }}
+                    />
+                </View>
+
+                <View>
+                    <ButtonForm
+                        text={t('click-allow')}
+                        actionButton={() => navigator.navigate('ThankYou')}
+                        style={{
+                            width: '100%',
+                            backgroundColor: 'transparent',
+                            marginTop: 15,
+                        }}
+                        styleText={{ color: palette.white }}
+                    />
+                    <Text
+                        style={{
+                            color: palette.white064,
+                            fontFamily: families.geist,
+                            fontSize: 14,
+                            lineHeight: 20,
+                            opacity: 0.8,
+                            textAlign: 'center',
+                            marginTop: 4,
+                        }}>
+                        {t('stay-updated-on-cooking-times')}
+                    </Text>
+                </View>
+            </View>
         </BaseScreenLayout>
     );
 }

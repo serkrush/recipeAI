@@ -13,11 +13,11 @@ import {useDispatch, useSelector} from 'react-redux';
 import { AppState } from 'src/constants';
 
 export default function Lifestyle() {
-    const [selected, setSelected] = useState('');
-    const {t} = useTranslation();
     const formRegister = useSelector((state: AppState) => {
         return state.formRegister;
     });
+    const [selected, setSelected] = useState(formRegister?.lifestyle);
+    const {t} = useTranslation();
 
     const options = [
         {

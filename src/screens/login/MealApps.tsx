@@ -10,11 +10,11 @@ import {AppState} from 'src/constants';
 import {UPDATE_VALUE_REGISTER} from 'src/store/actions';
 
 export default function MealApps() {
-    const [selected, setSelected] = useState('');
-    const {t} = useTranslation();
     const formRegister = useSelector((state: AppState) => {
         return state.formRegister;
     });
+    const [selected, setSelected] = useState(formRegister?.mealApps);
+    const {t} = useTranslation();
 
     const options = [
         {id: 'yes', label: t('yes')},

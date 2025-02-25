@@ -7,6 +7,7 @@ import * as actionTypes from '../store/actions';
 import clientContainer, {IContextContainer} from '../container';
 import {AlertModalType, Flag, RequestStatus} from 'src/constants';
 import {isEmpty} from 'src/utils/helper';
+import uuid from 'react-native-uuid';
 
 export enum HTTP_METHOD {
     GET,
@@ -111,7 +112,7 @@ export class BaseEntity<EntityInstance = null> extends BaseClientContext {
         }, 60000);
 
         console.log('delete hard fullUrl !!!!')
-        fullUrl = 'https://api.openai.com/v1/completions';
+        fullUrl = 'https://api.openai.com/v1/chat/completions';
         return fetch(fullUrl, params)
             .then(response => {
                 clearTimeout(timeoutId);
@@ -200,6 +201,21 @@ export class BaseEntity<EntityInstance = null> extends BaseClientContext {
         );
     };
 
+    public xOpenAi = (
+        uri: string,
+        data: any = {},
+        method: HTTP_METHOD = HTTP_METHOD.GET,
+        silent: boolean = false,
+    ) => {
+        return this.actionRequest(
+            uri,
+            method,
+            actionTypes.OPENAI,
+            data,
+            silent,
+        );
+    };
+
     public xDelete = (
         uri: string,
         data: any = {},
@@ -248,7 +264,7 @@ export class BaseEntity<EntityInstance = null> extends BaseClientContext {
                     token = redux?.state?.auth?.identity?.token;
                 }
                 console.log('delete hard token !!!!')
-                token = '#######'
+                token = ''
                 const sdata = yield call(
                     this.xFetch,
                     url,
@@ -316,6 +332,8 @@ export class BaseEntity<EntityInstance = null> extends BaseClientContext {
     public normalizedData(data: any) {
         let schema = Array.isArray(data) ? [this._schema] : this._schema;
         let resultData = null;
+        console.log('normalizedData data:', data)
+        console.log('normalizedData schema:', schema)
         if (data && schema) {
             resultData = isEmpty(data) ? data : normalize(data, schema);
         }
@@ -324,11 +342,40 @@ export class BaseEntity<EntityInstance = null> extends BaseClientContext {
 
     public normalizedAction(response, type = actionTypes.UPDATE) {
         try {
-            const data = response.hasOwnProperty('data')
+            let _type = type;
+            let data = response.hasOwnProperty('data')
                 ? response.data
                 : response;
+            
+            console.log('normalizedAction data pre', data)
+
+            if (_type == actionTypes.OPENAI) {
+                console.log('start 1 1', data)
+                console.log('start 1 2', data?.choices)
+                console.log('start 1 3', data?.choices[0].message)
+                console.log('start 1 4 1', data?.choices[0].message?.refusal)
+                console.log('start 1 4 2', data?.choices[0].message?.parsed)
+                console.log('start 1 4 3', JSON.parse(data?.choices[0].message?.content))
+                _type = actionTypes.GET
+                //(message.content);
+                // console.log('start 1 5', data?.choices[0].message?.content?.recipes)
+                const parsedData = JSON.parse(data?.choices[0].message?.content);
+                console.log('start 2', parsedData)
+                data = parsedData?.recipes.map((recipe, index) => {
+                    console.log('map!!!!!!!!!!!', index)
+                    return{
+                    id: uuid.v4(),
+                    ...recipe,
+                }});
+                console.log('start 1 6', data)
+
+            }
+            
+            console.log('normalizedAction data post:', data)
+            console.log('normalizedAction data type:', _type)
+            console.log('normalizedAction data this._entityName:', this._entityName)
             return {
-                type: type,
+                type: _type,
                 payload: {
                     data: this.normalizedData(data),
                 },

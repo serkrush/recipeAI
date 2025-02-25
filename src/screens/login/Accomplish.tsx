@@ -1,23 +1,19 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {Text, View} from 'react-native';
-import Carousel from 'pinar';
-import ModalDropdown from 'react-native-modal-dropdown';
-import i18next from 'i18next';
+import React, {useContext, useState} from 'react';
+import {View} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import ContainerContext from 'src/ContainerContext';
 import BaseScreenLayout from 'src/components/layouts/BaseScreenLayout';
 import QuestionnaireLayout from 'src/components/layouts/QuestionnaireLayout';
-import ButtonForm from 'src/components/Form/ButtonForm';
-import WelcomeSliderItem from 'src/components/WelcomeSliderItem';
-import ArrowDown from '../../../assets/svg/ArrowDown';
 import {images} from 'src/theme/images';
-import palette from 'src/theme/colors/palette';
-import {families} from 'src/theme';
 import RadioButton from 'src/components/Form/RadioButton';
+import {useDispatch, useSelector} from 'react-redux';
+import {UPDATE_VALUE_REGISTER} from 'src/store/actions';
+import { AppState } from 'src/constants';
 
 export default function Accomplish() {
-    const [selected, setSelected] = useState('');
-    const di = useContext(ContainerContext);
+    const formRegister = useSelector((state: AppState) => {
+        return state.formRegister;
+    });
+    const [selected, setSelected] = useState(formRegister?.accomplish);
     const {t} = useTranslation();
 
     const options = [
@@ -35,6 +31,12 @@ export default function Accomplish() {
             label: t('feel-better-about-my-body'),
         },
     ];
+    
+    const dispatch = useDispatch();
+    const handleSelect = (id: string) => {
+        setSelected(id);
+        dispatch({type: UPDATE_VALUE_REGISTER, payload: {accomplish: id}});
+    };
 
     return (
         <BaseScreenLayout
@@ -44,7 +46,12 @@ export default function Accomplish() {
             }}>
             <QuestionnaireLayout
                 title={t('what-youd-want-to-accomplish')}
-                imageBar={images.bar8}
+                imageBar={images.bar9}
+                activeNextBtn={
+                    formRegister?.accomplish && formRegister?.accomplish !== ''
+                        ? true
+                        : false
+                }
                 screenNavigate="LoveRecipeAI">
                 <View style={{gap: 8}}>
                     {options.map(option => (
@@ -52,7 +59,7 @@ export default function Accomplish() {
                             key={option.id}
                             label={option.label}
                             selected={selected === option.id}
-                            onPress={() => setSelected(option.id)}
+                            onPress={() => handleSelect(option.id)}
                         />
                     ))}
                 </View>

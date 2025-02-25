@@ -6,15 +6,17 @@ import ButtonForm from '../Form/ButtonForm';
 import {useTranslation} from 'react-i18next';
 import ContainerContext from 'src/ContainerContext';
 import BackButton from '../BackButton';
+import HeaderProgressBar from './HeaderProgressBar';
 
 interface QuestionnaireLayoutProps {
     title?: string;
     description?: string;
-    imageBar: string;
+    imageBar?: string;
     screenNavigate: string;
     children?: React.ReactNode;
     backButton?: boolean;
     textHeaderStyle?: object;
+    textHeaderDescriptionStyle?: object;
     activeNextBtn?: boolean;
 }
 
@@ -26,6 +28,7 @@ const QuestionnaireLayout: React.FC<QuestionnaireLayoutProps> = ({
     children,
     backButton = true,
     textHeaderStyle = {},
+    textHeaderDescriptionStyle = {},
     activeNextBtn = true,
 }) => {
     const {t} = useTranslation();
@@ -34,22 +37,14 @@ const QuestionnaireLayout: React.FC<QuestionnaireLayoutProps> = ({
 
     return (
         <View style={styles.container}>
-            <View style={styles.header}>
-                <View style={styles.imageContainer}>
-                    {backButton && <BackButton style={styles.backButton} />}
-                    <Image source={imageBar} />
-                </View>
-                <View style={textHeaderStyle}>
-                    {title && (
-                        <Text style={{...styles.title, ...textHeaderStyle}}>
-                            {title}
-                        </Text>
-                    )}
-                    {description && (
-                        <Text style={styles.description}>{description}</Text>
-                    )}
-                </View>
-            </View>
+            <HeaderProgressBar
+                title={title}
+                description={description}
+                imageBar={imageBar}
+                backButton={backButton}
+                textHeaderStyle={textHeaderStyle}
+                textHeaderDescriptionStyle={textHeaderDescriptionStyle}
+            />
 
             <ScrollView contentContainerStyle={styles.scrollViewContent}>
                 {children}
@@ -58,7 +53,7 @@ const QuestionnaireLayout: React.FC<QuestionnaireLayoutProps> = ({
             <View style={styles.footer}>
                 <ButtonForm
                     text={t('continue')}
-                    style={{opacity: activeNextBtn ? 1 : 0.8}}
+                    style={{opacity: activeNextBtn ? 1 : 0.2}}
                     actionButton={() => activeNextBtn && navigator.navigate(screenNavigate)}
                 />
             </View>
@@ -72,40 +67,12 @@ const styles = StyleSheet.create({
         paddingHorizontal: 24,
         paddingVertical: 20,
     },
-    header: {
-        justifyContent: 'flex-start',
-        paddingBottom: 16,
-    },
-    imageContainer: {
-        position: 'relative',
-        height: 36,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    title: {
-        color: palette.white,
-        fontFamily: families.geist,
-        fontSize: 34,
-        lineHeight: 44,
-        marginTop: 41,
-    },
-    description: {
-        color: palette.grey,
-        fontFamily: families.geist,
-        fontSize: 18,
-        lineHeight: 26,
-        marginTop: 8,
-    },
     scrollViewContent: {
         flexGrow: 1,
         paddingVertical: 16,
     },
     footer: {
         paddingTop: 16,
-    },
-    backButton: {
-        position: 'absolute',
-        left: 0,
     },
 });
 

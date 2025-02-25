@@ -4,6 +4,7 @@ import {RequestStatusAction} from './types/storeActionsTypes';
 export const ERROR = 'ERROR';
 export const ADD = 'ADD';
 export const UPDATE = 'UPDATE';
+export const OPENAI = 'OPENAI';
 export const GET = 'GET';
 export const DELETE = 'DELETE';
 export const DELETE_ALL = 'DELETE_ALL';
