@@ -94,5 +94,7 @@ export default {
         'settings': 'Settings',
         'cencel': 'Cencel',
         'camera-not-found': 'Camera not found',
+        'recipe-ai': 'Recipe AI',
+        'recipes-for-you': 'Recipes for you'
     },
 };

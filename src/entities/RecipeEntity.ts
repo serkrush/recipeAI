@@ -121,4 +121,82 @@ export default class RecipeEntity extends BaseEntity<RecipeEntity> {
     }
   }
 
+  @action()
+  public *getGenericRecipeAI() {
+    try {
+
+      yield call(
+        this.xOpenAi,
+        'https://api.openai.com/v1/chat/completions',
+        {
+          model: 'gpt-4o-mini',
+          messages: [
+            {
+              "role": "user",
+              content: [
+                { type: 'text', text: `Analyze this food image and generate multiple recipes based on detected ingredients, including a link to a photo of the prepared dish.` },
+              ]
+            }
+          ],
+          response_format: {
+            type: "json_schema",
+            json_schema: {
+              "name": "RecipeResponse",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "recipes": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": { "type": "string" },
+                        "type": { "type": "string", "const": "generic" },
+                        "image": { "type": "string" },
+                        "time": {
+                          "type": "object",
+                          "properties": {
+                            "prep-time": { "type": "number" },
+                            "cook-time": { "type": "number" },
+                            "total-time": { "type": "number" }
+                          },
+                          "required": ["prep-time", "cook-time", "total-time"]
+                        },
+                        "ingredients": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "name": { "type": "string" },
+                              "count": { "type": "string" }
+                            },
+                            "required": ["name", "count"]
+                          }
+                        },
+                        "steps": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "required": ["name", "image", "time", "ingredients", "steps"]
+                    }
+                  }
+                },
+                "additionalProperties": false,
+                "required": ["recipes"]
+              }
+            }
+          },
+          // max_tokens: 300,
+        },
+        HTTP_METHOD.POST,
+      );
+    
+    } catch (error) {
+      console.log(' error', error);
+    }
+  }
+
 }

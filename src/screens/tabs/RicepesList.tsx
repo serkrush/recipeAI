@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, Image, StyleSheet, ScrollView } from 'react-native';
 import { useSelector } from 'react-redux';
+import ButtonForm from 'src/components/Form/ButtonForm';
 import BaseScreenLayout from 'src/components/layouts/BaseScreenLayout';
 import HeaderProgressBar from 'src/components/layouts/HeaderProgressBar';
 import { AppState } from 'src/constants';
@@ -137,19 +138,21 @@ export default function RecipesList({ route }) {
                 paddingHorizontal: 24,
                 paddingVertical: 20,
             }}>
-            <View>
+            <View style={{ flex: 1 }}>
                 <View>
                     <HeaderProgressBar
-                        title='Recipes'
-                        description='List of recipes'
+                        title={recipesValues?.length + ' recipes found for you!'}
+                        description='That take less than 25 minutes to make.'
+                        textHeaderStyle={{ width: '100%', textAlign: 'center' }}
+                        textHeaderDescriptionStyle={{ width: '100%', textAlign: 'center', }}
                     />
                 </View>
-                <View style={{ gap: 40 }}>
+                <ScrollView style={{ marginTop: 40 }}>
                     {
                         recipesValues?.length > 0 && recipesValues.map((recipe, index) => {
                             console.log('recipe', recipe)
                             return (
-                                <View key={index} style={{ flexDirection: 'row', gap: 24, }}>
+                                <View key={index} style={{ flexDirection: 'row', gap: 24, width: '100%', justifyContent: 'space-between', marginBottom: 40 }}>
                                     <View style={{ position: 'relative' }}>
                                         <View style={{
                                             position: 'absolute',
@@ -168,14 +171,17 @@ export default function RecipesList({ route }) {
                                         <Image source={images.example2} style={{ width: 112, height: 112, borderRadius: 20 }} />
                                         {/* <Image source={{ uri: recipe.image }} style={{ width: 100, height: 100 }} /> */}
                                     </View>
-                                    <View style={{ justifyContent: 'space-between' }}>
+                                    <View style={{ justifyContent: 'space-between', flex: 1 }}>
                                         <Text style={{
                                             color: palette.white,
                                             fontFamily: families.geist500,
                                             fontSize: 18,
                                             lineHeight: 28
                                         }}>{recipe.name}</Text>
-                                        <View>
+                                        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                                            <View style={{ backgroundColor: palette.hotPink, paddingHorizontal: 20, paddingVertical: 8, borderRadius: 100 }}>
+                                                <Text>Cook</Text>
+                                            </View>
                                             <Text style={{
                                                 color: palette.hotPink,
                                                 fontFamily: families.geist500,
@@ -190,8 +196,20 @@ export default function RecipesList({ route }) {
                             )
                         })
                     }
-                </View>
-                <View>
+                </ScrollView>
+                <View
+                    style={{
+                        paddingVertical: 20,
+                        width: '100%',
+                    }}
+                >
+                    <ButtonForm
+                        text={'Show more'}
+                        style={{
+                            with: '100%'
+                        }}
+                        actionButton={() => console.log('Show more')}
+                    />
                 </View>
             </View>
         </BaseScreenLayout>
