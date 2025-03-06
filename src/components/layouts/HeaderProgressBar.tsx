@@ -6,6 +6,7 @@ import ButtonForm from '../Form/ButtonForm';
 import { useTranslation } from 'react-i18next';
 import ContainerContext from 'src/ContainerContext';
 import BackButton from '../BackButton';
+import { windowWidth } from 'src/utils/size';
 
 interface HeaderProgressBarProps {
     title?: string;
@@ -29,11 +30,13 @@ const HeaderProgressBar: React.FC<HeaderProgressBarProps> = ({
     return (
         <View style={styles.header}>
             <View style={styles.imageContainer}>
+                
                 {backButton && <BackButton style={styles.backButton} />}
                 {!startScroll && imageBar && <Image source={imageBar} />}
                 {startScroll && title && (
                     <Text style={{
                         fontFamily: families.geist500,
+                        fontWeight: '500',
                         color: palette.white,
                         fontSize: 18,
                         lineHeight: 28
@@ -60,6 +63,7 @@ const styles = StyleSheet.create({
     header: {
         justifyContent: 'flex-start',
         paddingBottom: 16,
+        zIndex:1000
     },
     imageContainer: {
         position: 'relative',

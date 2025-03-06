@@ -60,7 +60,9 @@ export class BaseEntity<EntityInstance = null> extends BaseClientContext {
         token?: string,
     ) {
         const {config, redux} = this.di;
-        let fullUrl = `${config.baseUrl}${config.apiString}${endpoint}`;
+        console.log('delete hard fullUrl !!!!')
+        let fullUrl = endpoint;
+        // let fullUrl = `${config.baseUrl}${config.apiString}${endpoint}`;
         const headers: any = {
             'Access-Control-Allow-Origin': '*',
         };
@@ -111,8 +113,8 @@ export class BaseEntity<EntityInstance = null> extends BaseClientContext {
             controller.abort();
         }, 60000);
 
-        console.log('delete hard fullUrl !!!!')
-        fullUrl = 'https://api.openai.com/v1/chat/completions';
+        // fullUrl = 'https://api.openai.com/v1/chat/completions';
+        console.log('fullUrl', fullUrl)
         return fetch(fullUrl, params)
             .then(response => {
                 clearTimeout(timeoutId);
@@ -207,12 +209,14 @@ export class BaseEntity<EntityInstance = null> extends BaseClientContext {
         method: HTTP_METHOD = HTTP_METHOD.GET,
         silent: boolean = false,
     ) => {
+        const {config} = this.di;
         return this.actionRequest(
             uri,
             method,
             actionTypes.OPENAI,
             data,
             silent,
+            config.openaiToken
         );
     };
 
@@ -245,6 +249,7 @@ export class BaseEntity<EntityInstance = null> extends BaseClientContext {
         type,
         data: any,
         silent: boolean,
+        tokenAI?: string
     ) {
         try {
                 if (!silent) {
@@ -260,11 +265,11 @@ export class BaseEntity<EntityInstance = null> extends BaseClientContext {
 
                 const {redux, t} = this.di;
                 let token: string | undefined;
-                if (redux?.state?.auth?.identity?.token) {
+                if (tokenAI) {
+                    token = tokenAI
+                } else if (redux?.state?.auth?.identity?.token) {
                     token = redux?.state?.auth?.identity?.token;
                 }
-                console.log('delete hard token !!!!')
-                token = ''
                 const sdata = yield call(
                     this.xFetch,
                     url,
@@ -353,8 +358,6 @@ export class BaseEntity<EntityInstance = null> extends BaseClientContext {
                 console.log('start 1 1', data)
                 console.log('start 1 2', data?.choices)
                 console.log('start 1 3', data?.choices[0].message)
-                console.log('start 1 4 1', data?.choices[0].message?.refusal)
-                console.log('start 1 4 2', data?.choices[0].message?.parsed)
                 console.log('start 1 4 3', JSON.parse(data?.choices[0].message?.content))
                 _type = actionTypes.GET
                 //(message.content);

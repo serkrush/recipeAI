@@ -35,6 +35,7 @@ const PriceRow = ({ prices }: PriceRowProps) => {
                         style={{
                             color: palette.white,
                             fontFamily: families.geist500,
+                            fontWeight: '500',
                             fontSize: 16,
                             lineHeight: 24,
                         }
@@ -45,6 +46,7 @@ const PriceRow = ({ prices }: PriceRowProps) => {
                         style={{
                             marginTop: 4,
                             fontFamily: families.geist500,
+                            fontWeight: '500',
                             color: palette.white,
                             fontSize: 24,
                             lineHeight: 28
@@ -81,6 +83,7 @@ const PriceRow = ({ prices }: PriceRowProps) => {
                                 style={{
                                     color: palette.black,
                                     fontFamily: families.geist500,
+                                    fontWeight: '500',
                                     fontSize: 14,
                                     lineHeight: 20,
                                 }}
@@ -107,6 +110,7 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: palette.white008,
         fontFamily: families.geist500,
+        fontWeight: '500',
         fontSize: 16,
         color: palette.white,
         lineHeight: 24,

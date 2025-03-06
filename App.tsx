@@ -5,8 +5,9 @@
  * @format
  */
 
+import { supabase } from './supabaseClient';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Image, TouchableOpacity, useColorScheme } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Provider as ReduxProvider, useSelector } from 'react-redux';
@@ -45,6 +46,7 @@ import Congratulations from 'src/screens/login/Congratulations';
 import Rate from 'src/screens/login/Rate';
 import SignUp from 'src/screens/login/SignUp';
 import Main from 'src/screens/tabs/Main';
+import RecipeDetails from 'src/screens/tabs/RecipeDetails';
 import RecipesList from 'src/screens/tabs/RicepesList';
 import Home from './assets/svg/Home';
 import Plus from './assets/svg/Plus';
@@ -99,6 +101,7 @@ function Tabs() {
                 tabBarLabelStyle: {
                     fontSize: 12,
                     fontFamily: families.geist500,
+                    fontWeight: '500',
                     lineHeight: 20,
                 },
                 tabBarStyle: {
@@ -166,16 +169,42 @@ function App(): React.JSX.Element {
         SplashScreen.hide();
     }, []);
 
+    // useEffect(() => {
+    //     const unsubscribe = NetInfo.addEventListener(state => {
+    //         console.log('NET STATUS, ', !!state.isConnected);
+    //         redux.dispatch(setBox(Flag.NET_CONNECTED, !!state.isConnected));
+    //     });
+
+    //     return () => {
+    //         unsubscribe();
+    //     };
+    // }, []);
+
+
+    const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
     useEffect(() => {
-        const unsubscribe = NetInfo.addEventListener(state => {
-            console.log('NET STATUS, ', !!state.isConnected);
-            redux.dispatch(setBox(Flag.NET_CONNECTED, !!state.isConnected));
+        console.log('useEffect 1')
+        const checkUser = async () => {
+            console.log('useEffect 2 checkUser')
+            const { data: { session } } = await supabase.auth.getSession();
+            setIsLoggedIn(!!session);
+        };
+
+        checkUser();
+
+        // Подписка на изменения сессии
+        const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
+            console.log('useEffect 3')
+            setIsLoggedIn(!!session);
         });
 
         return () => {
-            unsubscribe();
+            console.log('useEffect 4')
+            authListener.subscription.unsubscribe();
         };
     }, []);
+
+    console.log('isLoggedIn', isLoggedIn)
 
     return (
         <ReduxProvider store={redux.store}>
@@ -299,7 +328,12 @@ function App(): React.JSX.Element {
                                     <Stack.Screen
                                         name="RecipesList"
                                         component={RecipesList}
-                                        options={{headerShown: false}}
+                                        options={{ headerShown: false }}
+                                    />
+                                    <Stack.Screen
+                                        name="RecipeDetails"
+                                        component={RecipeDetails}
+                                        options={{ headerShown: false }}
                                     />
 
                                 </Stack.Navigator>

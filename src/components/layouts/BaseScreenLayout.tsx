@@ -1,7 +1,8 @@
 import React from 'react';
-import {View, StyleProp, ViewStyle} from 'react-native';
+import {View, StyleProp, ViewStyle, Image, Text, StatusBar} from 'react-native';
 import baseStyles from 'src/styles';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import { windowWidth } from 'src/utils/size';
 
 interface BaseScreenLayoutProps {
   containerStyle?: StyleProp<ViewStyle>;
@@ -18,6 +19,9 @@ export default class BaseScreenLayout extends React.Component<BaseScreenLayoutPr
 
     return (
       <SafeAreaView style={baseStyles.safeArea}>
+       
+      
+      
         <View style={[baseStyles.baseContainer, containerStyle]}>
           {children}
         </View>

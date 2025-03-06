@@ -24,14 +24,10 @@ const WeekDays = () => {
         startDate.setDate(startDate.getDate() - 3);
 
         for (let i = 0; i < 7; i++) {
-            console.log('startDate 2', startDate);
-
             const date = new Date(startDate);
             date.setDate(startDate.getDate() + i);
             days.push(date);
         }
-        console.log('days', days);
-
         return days;
     };
 
@@ -84,12 +80,14 @@ const styles = StyleSheet.create({
     },
     dayText: {
         fontFamily: families.geist500,
+        fontWeight: '500',
         fontSize: 13,
         lineHeight: 16,
         color: palette.white048
     },
     dateText: {
         fontFamily: families.geist500,
+        fontWeight: '500',
         fontSize: 22,
         lineHeight: 28,
         color: palette.white048

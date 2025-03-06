@@ -36,6 +36,7 @@ export default function ButtonForm({
                     style={{
                         ...{
                             fontFamily: families.geist500,
+                            fontWeight: '500',
                             fontSize: 18,
                             lineHeight: 26,
                             letterSpacing: -0.02 * 18,

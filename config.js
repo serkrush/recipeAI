@@ -7,17 +7,12 @@ const second = 1000;
 const minute = 60 * second;
 
 const prodConfig = {
-    appName: 'dehydrator',
-    baseUrl: 'https://dev-app.benchfoods.com',
+    appName: 'ScanCook',
+    baseUrl: '',
     apiString: '/api',
     dev: isDev,
-    broadcastPort: 6024,
-    testLogin: '',
-    testPassword: '',
+    openaiToken: ''
 
-    pairTimeout: 20 * second,
-    scanTime: 20 * second,
-    resetTimeout: 3 * minute,
 };
 
 let localConfig = {};

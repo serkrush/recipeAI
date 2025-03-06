@@ -1,257 +1,284 @@
-import {schema} from 'normalizr';
-import {call, put} from 'redux-saga/effects';
+// // import { schema } from 'normalizr';
+// // import { call, put } from 'redux-saga/effects';
+// // import alias from 'src/decorators/alias';
+// // import action from '../../src/decorators/action';
+// // import { AlertModalType, ENTITY, Flag } from '../constants';
+// // import reducer from '../decorators/reducer';
+// // import * as actionTypes from '../store/actions';
+// // import { BaseEntity, HTTP_METHOD } from './BaseEntity';
+// // import { IUserEntity } from './EntityTypes';
+// // import { createClient } from '@supabase/supabase-js';
+// // import { supabase } from '../../supabaseClient';
+
+// // // Инициализация Supabase клиента
+// // // const supabaseUrl = 'https://your-supabase-url.supabase.co';
+// // // const supabaseKey = 'your-supabase-key';
+// // // const supabase = createClient(supabaseUrl, supabaseKey);
+
+// // @alias('Users')
+// // @reducer(ENTITY.USER)
+// // export default class UserEntity extends BaseEntity<UserEntity> {
+// //     constructor(opts: any) {
+// //         super(opts);
+// //         this.initSchema(
+// //             ENTITY.USER,
+// //             {},
+// //             { idAttribute: 'uid' },
+// //         );
+// //     }
+
+// //     @action()
+// //     public *signUpUser(user) {
+// //         console.log('111')
+// //         try {
+// //             // Регистрация пользователя в Supabase Auth
+// //             const res = yield call(
+// //                 [supabase.auth, supabase.auth.signUp],
+// //                 {
+// //                     email: user.email,
+// //                     password: user.password,
+// //                 }
+// //             );
+// //             const authError = res.error;
+// //             const authUser = res.data.user;
+// //             console.log('authUser',authUser)
+// //             console.log('authError',authError)
+// //             console.log('authUser.id',authUser.id)
+
+// //             if (authError) {
+// //                 throw authError;
+// //             }
+
+// //             // Добавление информации о пользователе в таблицу users
+// //             const respProfiles = yield call(
+// //                 [supabase, supabase.from],
+// //                 'profiles',
+// //                 {
+// //                     uid: authUser.id,
+// //                     email: user.email,
+// //                     age: user.age,
+// //                     weight: user.weight,
+// //                     // Добавьте другие поля, которые вам нужны
+// //                 }
+// //             );
+
+// //             // if (error) {
+// //             //     throw error;
+// //             // }
+
+
+// //             console.log('respProfiles', respProfiles)
+// //             // Успешная регистрация
+// //             // yield put({
+// //             //     type: actionTypes.USER_SIGN_UP_SUCCESS,
+// //             //     payload: data,
+// //             // });
+
+// //         } catch (error) {
+// //             console.log('error', error)
+// //             // Обработка ошибок
+// //             // yield put({
+// //             //     type: actionTypes.USER_SIGN_UP_FAILURE,
+// //             //     payload: error.message,
+// //             // });
+// //         }
+// //     }
+// // }
+
+
+
+
+// import { schema } from 'normalizr';
+// import { call, put } from 'redux-saga/effects';
+// import alias from 'src/decorators/alias';
+// import action from '../../src/decorators/action';
+// import { AlertModalType, ENTITY, Flag } from '../constants';
+// import reducer from '../decorators/reducer';
+// import * as actionTypes from '../store/actions';
+// import { BaseEntity, HTTP_METHOD } from './BaseEntity';
+// import { IUserEntity } from './EntityTypes';
+// import { supabase } from '../../supabaseClient';
+// // import { supabase } from 'src/supabaseClient'; // Убедись, что этот файл есть
+
+// @alias('Users')
+// @reducer(ENTITY.USER)
+// export default class UserEntity extends BaseEntity<UserEntity> {
+//     constructor(opts: any) {
+//         super(opts);
+//         this.initSchema(
+//             ENTITY.USER,
+//             {},
+//             { idAttribute: 'uid' },
+//         );
+//     }
+
+//     @action()
+//     public *signUpUser(user) {
+//         console.log('user')
+//         try {
+//             const { email, password, age, weight } = user;
+
+//             // 1. Регистрируем пользователя через Supabase Auth
+//             const { data, error } = yield call(
+//                 [supabase.auth, supabase.auth.signUp],
+//                 { email, password }
+//             );
+
+//             if (error) {
+//                 throw new Error(error.message);
+//             }
+
+//             const userId = data?.user?.id;
+//             if (!userId) {
+//                 throw new Error('Ошибка: пользователь не был создан.');
+//             }
+
+//             // 2. Сохраняем дополнительные данные в таблице `profiles`
+//             console.log('userId', userId)
+//             console.log('data', data)
+//             const { error: profileError } = yield call(
+//                 [supabase.from('profiles'), supabase.from('profiles').insert],
+//                 [{ id: userId, age, weight, email }]
+//             );
+
+//             if (profileError) {
+//                 throw new Error(profileError.message);
+//             }
+//             console.error('!!!! регистрации:', { userId, email, age, weight });
+
+//             // 3. Диспатчим успешную регистрацию
+//             // yield put({ type: actionTypes.USER_SIGNUP_SUCCESS, payload: { userId, email, age, weight } });
+
+//         } catch (err) {
+//             console.error('Ошибка регистрации:', err);
+//             // yield put({ type: actionTypes.USER_SIGNUP_FAILURE, error: err.message });
+//         }
+//     }
+// }
+
+
+import { schema } from 'normalizr';
+import { call, put } from 'redux-saga/effects';
 import alias from 'src/decorators/alias';
 import action from '../../src/decorators/action';
-import {AlertModalType, ENTITY, Flag} from '../constants';
+import { AlertModalType, ENTITY, Flag } from '../constants';
 import reducer from '../decorators/reducer';
 import * as actionTypes from '../store/actions';
-import {BaseEntity, HTTP_METHOD} from './BaseEntity';
-import {IUserEntity} from './EntityTypes';
+import { BaseEntity, HTTP_METHOD } from './BaseEntity';
+import { IUserEntity } from './EntityTypes';
+import { supabase } from '../../supabaseClient';
+
 @alias('Users')
 @reducer(ENTITY.USER)
 export default class UserEntity extends BaseEntity<UserEntity> {
     constructor(opts: any) {
         super(opts);
-        const groups = new schema.Entity(ENTITY.GROUP, {}, {});
-        const access = new schema.Entity(ENTITY.ACCESS, {}, {});
         this.initSchema(
             ENTITY.USER,
-            {
-                [ENTITY.GROUP]: [groups],
-                [ENTITY.ACCESS]: [access],
-            },
-            {idAttribute: 'uid'},
+            {},
+            { idAttribute: 'uid' },
         );
-
-        this.getUserDetailed = this.getUserDetailed.bind(this);
-        this.getCurrentUserDetailed = this.getCurrentUserDetailed.bind(this);
-        this.clearCurrentUserAccess = this.clearCurrentUserAccess.bind(this);
     }
 
     @action()
-    public *getRelatedUsers({data}) {
-        console.log('getRelatedUsers data', data);
-        const force = data?.force ?? false;
-        console.log('force', force);
+    public *signUpUser(user) {
+        console.log('user');
         try {
-            const resData = yield call(
-                this.xRead,
-                '/users/related',
-                {},
-                HTTP_METHOD.GET,
-                force ?? false,
+            const { email, password, age, weight } = user;
+
+            // 1. Регистрируем пользователя через Supabase Auth
+            const { data, error } = yield call(
+                [supabase.auth, supabase.auth.signUp],
+                { email, password }
             );
-            if (resData.success) {
-            } else {
-                this.handleUnsuccessResponse(resData?.response);
-            }
-        } catch (error) {
-            console.log(' error', error);
-        }
-    }
 
-    @action()
-    public *getUserDetailed({
-        uid,
-        flag,
-        force,
-    }: {
-        uid: string;
-        flag: string;
-        force?: boolean;
-    }) {
-        console.log('getUserDetailed !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-        yield put(actionTypes.setBox(flag, false));
-        try {
-            const resData = yield call(
-                this.xRead,
-                `/users/${uid}/detailed`,
-                {},
-                HTTP_METHOD.POST,
-                force ?? false,
+            if (error) {
+                throw new Error(error.message);
+            }
+
+            const userId = data?.user?.id;
+            if (!userId) {
+                throw new Error('Ошибка: пользователь не был создан.');
+            }
+
+            // 2. Сохраняем дополнительные данные в таблице `profiles`
+            console.log('userId', userId);
+            console.log('data', data);
+            const { error: profileError } = yield call(
+                [supabase.from('profiles'), supabase.from('profiles').insert],
+                [{ id: userId, age, weight, email }]
             );
-            console.log('getUserDetailed resData', resData);
-            yield put(actionTypes.setBox(flag, true));
-            if (resData.success) {
-                yield call(this.clearCurrentUserAccess);
-            } else {
-                this.handleUnsuccessResponse(resData?.response);
+
+            if (profileError) {
+                throw new Error(profileError.message);
             }
-        } catch (error) {
-            yield put(actionTypes.setBox(flag, true));
-            console.log('error', error);
+            console.error('!!!! регистрации:', { userId, email, age, weight });
+
+            // 3. Диспатчим успешную регистрацию
+            // yield put({ type: actionTypes.USER_SIGNUP_SUCCESS, payload: { userId, email, age, weight } });
+        } catch (err) {
+            console.error('Ошибка регистрации:', err);
+            // yield put({ type: actionTypes.USER_SIGNUP_FAILURE, error: err.message });
         }
     }
 
     @action()
-    public *getCurrentUserDetailed({data}) {
-        const force = data?.force ?? false;
+    public *loginUser(user) {
+        console.log('loginUser');
         try {
-            const resData = yield call(
-                this.xRead,
-                '/users/detailed',
-                {},
-                HTTP_METHOD.POST,
-                force,
+            const { email, password } = user;
+
+            // 1. Логиним пользователя через Supabase Auth
+            const { data, error } = yield call(
+                [supabase.auth, supabase.auth.signInWithPassword],
+                { email, password }
             );
-            console.log('getUserDetailed resData', resData);
-            if (resData.success) {
-                yield call(this.clearCurrentUserAccess);
-            } else {
-                this.handleUnsuccessResponse(resData?.response);
+
+            if (error) {
+                throw new Error(error.message);
             }
-        } catch (error) {
-            console.log('error', error);
-        }
-    }
 
-    @action()
-    public *sendIviteForNewUser({
-        receiverFirstName,
-        receiverLastName,
-        receiverEmail,
-        accessData,
-    }) {
-        console.log('sendIviteForNewUser1');
-        try {
-            const {t, redux} = this.di;
-            console.log('sendIviteForNewUser', receiverEmail);
-            const resData = yield call(this.xSave, '/users/invite', {
-                data: {
-                    receiverFirstName,
-                    receiverLastName,
-                    receiverEmail,
-                    accessData,
-                },
-            });
-            if (resData.success) {
-                redux.dispatch(
-                    actionTypes.setBox(Flag.AlertModal, {
-                        title: t('sending-invite'),
-                        message: t('send-ivite-success'),
-                    }),
-                );
-            } else {
-                this.handleUnsuccessResponse(resData?.response);
+            const userId = data?.user?.id;
+            if (!userId) {
+                throw new Error('Ошибка: пользователь не найден.');
             }
-        } catch (error) {
-            console.log('error', error);
-        }
-    }
 
-    @action()
-    public *updateIdentityData({
-        user,
-        updatedData,
-    }: {
-        user: IUserEntity;
-        updatedData;
-    }) {
-        const {
-            Identity,
-            redux: {dispatch},
-        } = this.di;
-
-        if (updatedData.language) {
-            yield call(Identity.setLanguageCode, {value: updatedData.language});
-        }
-        const {t} = this.di;
-        try {
-            const resData = yield call(
-                this.xSave,
-                `/users/${user.uid}/update/data`,
-                {
-                    data: {...user, ...updatedData},
-                },
+            // 2. Загружаем дополнительные данные пользователя
+            const { data: profile, error: profileError } = yield call(
+                [supabase.from('profiles'), supabase.from('profiles').select],
+                '*'
             );
-            if (resData.success) {
-                yield put(
-                    actionTypes.action(actionTypes.UPDATE_IDENTITY_USERDATA, {
-                        payload: {
-                            data: resData.response.data,
-                        },
-                    }),
-                );
-                dispatch(
-                    actionTypes.setBox(Flag.AlertModal, {
-                        title: t('updating-user'),
-                        message: t('user-updated-success'),
-                    }),
-                );
-            } else {
-                this.handleUnsuccessResponse(resData?.response);
+
+            if (profileError) {
+                throw new Error(profileError.message);
             }
-        } catch (error) {
-            console.log('login error', error);
+
+            console.log('Успешный вход:', { userId, email, profile });
+            yield put({ type: actionTypes.USER_LOGIN_SUCCESS, payload: { userId, email, profile } });
+        } catch (err) {
+            console.error('Ошибка входа:', err);
+            // yield put({ type: actionTypes.USER_LOGIN_FAILURE, error: err.message });
         }
     }
+
 
     @action()
-    public *transferAllRights({newUser}: {newUser: string}) {
+    public *getUserSaga() {
         try {
-            const {t, navigator, Identity, redux} = this.di;
-            const resData = yield call(this.xSave, '/users/transfer', {
-                newUser,
-            });
-            if (resData.success) {
-                redux.dispatch(
-                    actionTypes.setBox(Flag.AlertModal, {
-                        title: t('transferring-rights'),
-                        message: t('success-transferring-rights'),
-                    }),
-                );
-                navigator.navigate('Main');
-                let entities = {};
-                Object.values(ENTITY).forEach(entity => {
-                    entities[entity] = {};
-                });
-                yield put(
-                    actionTypes.action(actionTypes.DELETE_ALL, {
-                        payload: {
-                            data: {
-                                entities,
-                            },
-                        },
-                    }),
-                );
-                yield put(Identity.actions.updateIdentity({force: true}));
-            } else {
-                this.handleUnsuccessResponse(resData?.response);
-            }
+          const { data, error } = yield call([supabase.auth, supabase.auth.getSession]);
+      
+          if (error || !data?.session) {
+            console.error('❌ Ошибка: нет активной сессии');
+            return null;
+          }
+          
+          console.log('активная сессия!!!!');
+        //   console.log('data.session', data.session)
+          console.log('data.session.user', data.session.user)
+          return data.session.user;
         } catch (error) {
-            console.log('error', error);
+          console.error('Ошибка при получении пользователя:', error);
+          return null;
         }
-    }
-
-    clearCurrentUserAccess() {
-        const {redux} = this.di;
-        const userId = redux.state?.auth?.identity?.userId;
-        const users = redux.state.users;
-        if (userId && users) {
-            const user = users[userId];
-            const userAccess = user?.access ?? [];
-            const access = redux.state.access;
-            const accessForDelete = Object.values(access).filter(value => {
-                return value.userId == userId && !userAccess.includes(value.id);
-            });
-            const deleteObject = {};
-            for (let i = 0; i < accessForDelete.length; i++) {
-                const element = accessForDelete[i];
-                deleteObject[element.id] = element;
-            }
-
-            redux.dispatch(
-                actionTypes.action(actionTypes.DELETE, {
-                    payload: {
-                        data: {
-                            entities: {
-                                [ENTITY.ACCESS]: deleteObject,
-                            },
-                        },
-                    },
-                }),
-            );
-        }
-    }
-
+      }
 }

@@ -7,6 +7,7 @@ const initialBox = {
     goal: '',
     age: '',
     weight: '',
+    weightUnit: '',
     cause: '',
     diet: '',
     accomplish: '',

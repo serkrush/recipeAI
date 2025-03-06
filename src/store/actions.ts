@@ -1,5 +1,5 @@
-import {Action} from 'redux';
-import {RequestStatusAction} from './types/storeActionsTypes';
+import { Action } from 'redux';
+import { RequestStatusAction } from './types/storeActionsTypes';
 
 export const ERROR = 'ERROR';
 export const ADD = 'ADD';
@@ -29,15 +29,19 @@ export const CANCEL_RESET = 'CANCEL_RESET';
 
 export const CLEAR_OUT_OF_DATE = 'CLEAR_OUT_OF_DATE';
 export const UPDATE_VALUE_REGISTER = 'UPDATE_VALUE_REGISTER';
+export const ADD_RECIPE = 'ADD_RECIPE'
+export const CLEAR_RECIPE = 'CLEAR_RECIPE'
+export const TRANSFER_RECIPE = 'TRANSFER_RECIPE';
+export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS'
 
 export function action(type: string, payload = {}): Action {
-    return {type, ...payload};
+    return { type, ...payload };
 }
 
 export const setBox = (key: string, value: any) =>
-    action(SET_BOX, {key, value});
+    action(SET_BOX, { key, value });
 
-export const clearBox = (key: string) => action(SET_BOX, {key, undefined});
+export const clearBox = (key: string) => action(SET_BOX, { key, undefined });
 
 export const deleteBox = () => action(DELETE_BOX, {});
 

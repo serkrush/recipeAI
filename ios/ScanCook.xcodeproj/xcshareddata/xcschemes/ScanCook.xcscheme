@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "recipeAI.app"
-               BlueprintName = "recipeAI"
-               ReferencedContainer = "container:recipeAI.xcodeproj">
+               BuildableName = "ScanCook.app"
+               BlueprintName = "ScanCook"
+               ReferencedContainer = "container:ScanCook.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "recipeAI.app"
-            BlueprintName = "recipeAI"
-            ReferencedContainer = "container:recipeAI.xcodeproj">
+            BuildableName = "ScanCook.app"
+            BlueprintName = "ScanCook"
+            ReferencedContainer = "container:ScanCook.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "recipeAI.app"
-            BlueprintName = "recipeAI"
-            ReferencedContainer = "container:recipeAI.xcodeproj">
+            BuildableName = "ScanCook.app"
+            BlueprintName = "ScanCook"
+            ReferencedContainer = "container:ScanCook.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,9 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Image, ScrollView, Text, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppState } from 'src/constants';
-import { UPDATE_VALUE_REGISTER } from 'src/store/actions';
 import BaseScreenLayout from 'src/components/layouts/BaseScreenLayout';
 import { images } from 'src/theme/images';
 import ArrowDesign from '../../../assets/svg/ArrowDesign';
@@ -19,23 +16,17 @@ import palette from 'src/theme/colors/palette';
 import HeaderProgressBar from 'src/components/layouts/HeaderProgressBar';
 
 export default function Congratulations() {
-
     const [scroll, setScroll] = useState(false);
     const [reachedBottom, setReachedBottom] = useState(false);
     const { t } = useTranslation();
-
     const di = useContext(ContainerContext);
     const navigator = di.resolve('navigator');
 
     const handleScroll = (event) => {
         const offsetY = event.nativeEvent.contentOffset.y;
-
-        if (offsetY > 0.1) {
-            setScroll(true); // Change to a different color
-        } else {
-            setScroll(false); // Reset to transparent
-        }
+        setScroll(offsetY > 0.1);
     };
+
     const handleScrollEnd = (event) => {
         const { layoutMeasurement, contentOffset, contentSize } = event.nativeEvent;
         const isBottom = layoutMeasurement.height + contentOffset.y >= contentSize.height - 10;
@@ -43,11 +34,7 @@ export default function Congratulations() {
     };
 
     return (
-        <BaseScreenLayout
-            containerStyle={{
-                paddingHorizontal: 0,
-                paddingVertical: 0,
-            }}>
+        <BaseScreenLayout containerStyle={{ paddingHorizontal: 0, paddingVertical: 0 }}>
             <View style={{
                 position: 'absolute',
                 zIndex: 1,
@@ -58,31 +45,24 @@ export default function Congratulations() {
             }}>
                 <HeaderProgressBar
                     title='Congratulations'
-                    textHeaderStyle={{ width: '100%', textAlign: 'center', }}
+                    textHeaderStyle={{ width: '100%', textAlign: 'center' }}
                     headerStyle={{ paddingHorizontal: 24, paddingLeft: 24 }}
                     startScroll={scroll}
                 />
             </View>
             <ScrollView onScroll={handleScroll} onMomentumScrollEnd={handleScrollEnd} scrollEventThrottle={16}>
-                <Image
-                    style={{
-                        resizeMode: 'cover',
-                    }}
-                    source={images.congratulations}
-                />
+                <Image style={{ resizeMode: 'cover' }} source={images.congratulations} />
                 <View style={{ paddingHorizontal: 20, marginTop: -160 }}>
                     <View style={{ position: 'relative' }}>
-                        <View>
-                            <Text style={{
-                                position: 'relative', fontFamily: families.geist500, fontSize: 24,
-                                lineHeight: 28, color: palette.white,
-                            }}>
-                                {t('how-to-reach-your-goals')}
-
-                            </Text>
-                            <View style={{ position: 'absolute', right: 0, top: -155 }}>
-                                <ArrowDesign />
-                            </View>
+                        <Text style={{
+                            position: 'relative', fontFamily: families.geist500,
+                            fontWeight: '500', fontSize: 24,
+                            lineHeight: 28, color: palette.white,
+                        }}>
+                            {t('how-to-reach-your-goals')}
+                        </Text>
+                        <View style={{ position: 'absolute', right: 0, top: -155 }}>
+                            <ArrowDesign />
                         </View>
                     </View>
                     <View style={{ marginTop: 24 }}>
@@ -99,39 +79,23 @@ export default function Congratulations() {
                             color: palette.white,
                         }}>{t('plan-based')}</Text>
                         <View style={{ marginTop: 8 }}>
-                            <Text style={{
-                                fontFamily: families.geist,
-                                fontSize: 14,
-                                lineHeight: 20,
-                                color: palette.white024,
-                            }}>→ {t('basal-metabolic-rate')}</Text>
-                            <Text style={{
-                                fontFamily: families.geist,
-                                fontSize: 14,
-                                lineHeight: 20,
-                                color: palette.white024,
-                            }}>→ {t('calorie-counting-harvard')}</Text>
-                            <Text style={{
-                                fontFamily: families.geist,
-                                fontSize: 14,
-                                lineHeight: 20,
-                                color: palette.white024,
-                            }}>→ {t('international-society-of-aports-nutrition')}</Text>
-                            <Text style={{
-                                fontFamily: families.geist,
-                                fontSize: 14,
-                                lineHeight: 20,
-                                color: palette.white024,
-                            }}>→ {t('national-institutes-of-health')}</Text>
+                            {['basal-metabolic-rate', 'calorie-counting-harvard', 'international-society-of-aports-nutrition', 'national-institutes-of-health'].map((item, index) => (
+                                <Text key={index} style={{
+                                    fontFamily: families.geist,
+                                    fontSize: 14,
+                                    lineHeight: 20,
+                                    color: palette.white024,
+                                }}>→ {t(item)}</Text>
+                            ))}
                         </View>
                     </View>
                 </View>
             </ScrollView>
-            <View style={{backgroundColor:reachedBottom ? 'transparent' : palette.darkCharcoal064, padding: 20}}>
-            <ButtonForm
-                text={t('next')}
-                actionButton={() => navigator.navigate('Rate')}
-            />
+            <View style={{ backgroundColor: reachedBottom ? 'transparent' : palette.darkCharcoal064, padding: 20 }}>
+                <ButtonForm
+                    text={t('next')}
+                    actionButton={() => navigator.navigate('Rate')}
+                />
             </View>
         </BaseScreenLayout>
     );

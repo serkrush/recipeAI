@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
     },
     label: {
         fontFamily: families.geist500,
+        fontWeight: '500',
         fontSize: 18,
         color: palette.white,
         lineHeight: 28,
