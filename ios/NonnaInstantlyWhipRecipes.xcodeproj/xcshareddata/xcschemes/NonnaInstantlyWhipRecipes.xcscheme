@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "ScanCook.app"
-               BlueprintName = "ScanCook"
-               ReferencedContainer = "container:ScanCook.xcodeproj">
+               BuildableName = "NonnaInstantlyWhipRecipes.app"
+               BlueprintName = "NonnaInstantlyWhipRecipes"
+               ReferencedContainer = "container:NonnaInstantlyWhipRecipes.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ScanCook.app"
-            BlueprintName = "ScanCook"
-            ReferencedContainer = "container:ScanCook.xcodeproj">
+            BuildableName = "NonnaInstantlyWhipRecipes.app"
+            BlueprintName = "NonnaInstantlyWhipRecipes"
+            ReferencedContainer = "container:NonnaInstantlyWhipRecipes.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ScanCook.app"
-            BlueprintName = "ScanCook"
-            ReferencedContainer = "container:ScanCook.xcodeproj">
+            BuildableName = "NonnaInstantlyWhipRecipes.app"
+            BlueprintName = "NonnaInstantlyWhipRecipes"
+            ReferencedContainer = "container:NonnaInstantlyWhipRecipes.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,4 +1,4 @@
-package com.dehydratormobile
+package com.depo.design
 
 import android.app.Application
 import com.facebook.react.PackageList

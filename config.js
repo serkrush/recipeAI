@@ -7,7 +7,7 @@ const second = 1000;
 const minute = 60 * second;
 
 const prodConfig = {
-    appName: 'ScanCook',
+    appName: 'Nonna: Instantly Whip Recipes',
     baseUrl: '',
     apiString: '/api',
     dev: isDev,

@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       jsCodeLocation = Bundle.main.url(forResource: "main", withExtension: "jsbundle")!
     #endif
 
-    let rootView = RCTRootView(bundleURL: jsCodeLocation, moduleName: "ScanCook", initialProperties: nil, launchOptions: launchOptions)
+    let rootView = RCTRootView(bundleURL: jsCodeLocation, moduleName: "Nonna: Instantly Whip Recipes", initialProperties: nil, launchOptions: launchOptions)
     rootView.backgroundColor = UIColor.white
 
     self.window = UIWindow(frame: UIScreen.main.bounds)

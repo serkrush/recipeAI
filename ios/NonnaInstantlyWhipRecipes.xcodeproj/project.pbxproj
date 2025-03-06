@@ -26,34 +26,34 @@
 		AC75E90EE4B748638ABAF359 /* GeistMono-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D80ACA300504D61BD94C1C2 /* GeistMono-Thin.ttf */; };
 		ACB97CC95865415E82BACCE0 /* Geist-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30ACEA0A420D45C0980EE29E /* Geist-Thin.ttf */; };
 		B8CD13877D144D1294D65E8A /* Geist-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A65C5C65823421CA5BA5CF7 /* Geist-Regular.ttf */; };
-		C9EE2D0014155513CB6C0D4E /* libPods-ScanCook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26799EFD07B8563B4A895D8D /* libPods-ScanCook.a */; };
+		C9EE2D0014155513CB6C0D4E /* libPods-NonnaInstantlyWhipRecipes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26799EFD07B8563B4A895D8D /* libPods-NonnaInstantlyWhipRecipes.a */; };
 		CBBF6C040D1548229377BF5F /* GeistMono-UltraBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AFFE0213BE924144A2CFAD22 /* GeistMono-UltraBlack.ttf */; };
 		D90586A7337844F590BDEA20 /* Geist-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58FB36A20DB04BE1836ABA6D /* Geist-Medium.ttf */; };
 		F1548CD384114CED988808EB /* Geist-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E70CF53689447AB3943AF6 /* Geist-Black.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13B07F961A680F5B00A75B9A /* ScanCook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanCook.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ScanCook/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ScanCook/Info.plist; sourceTree = "<group>"; };
-		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = ScanCook/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* NonnaInstantlyWhipRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NonnaInstantlyWhipRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = NonnaInstantlyWhipRecipes/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = NonnaInstantlyWhipRecipes/Info.plist; sourceTree = "<group>"; };
+		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = NonnaInstantlyWhipRecipes/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		18098FBDC1B246509EC510B2 /* Geist-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Geist-ExtraBold.ttf"; path = "../assets/fonts/Geist-ExtraBold.ttf"; sourceTree = "<group>"; };
-		26799EFD07B8563B4A895D8D /* libPods-ScanCook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScanCook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26799EFD07B8563B4A895D8D /* libPods-NonnaInstantlyWhipRecipes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NonnaInstantlyWhipRecipes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30ACEA0A420D45C0980EE29E /* Geist-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Geist-Thin.ttf"; path = "../assets/fonts/Geist-Thin.ttf"; sourceTree = "<group>"; };
 		35A1E296A15D4765873E35D0 /* GeistMono-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "GeistMono-Bold.ttf"; path = "../assets/fonts/GeistMono-Bold.ttf"; sourceTree = "<group>"; };
 		38D626B3FB0B40FF99F691BE /* Geist-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Geist-Bold.ttf"; path = "../assets/fonts/Geist-Bold.ttf"; sourceTree = "<group>"; };
-		42DC6D3BDFC35729DD8F6012 /* Pods-ScanCook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanCook.release.xcconfig"; path = "Target Support Files/Pods-ScanCook/Pods-ScanCook.release.xcconfig"; sourceTree = "<group>"; };
+		42DC6D3BDFC35729DD8F6012 /* Pods-NonnaInstantlyWhipRecipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NonnaInstantlyWhipRecipes.release.xcconfig"; path = "Target Support Files/Pods-NonnaInstantlyWhipRecipes/Pods-NonnaInstantlyWhipRecipes.release.xcconfig"; sourceTree = "<group>"; };
 		43DCAAC1817A413CB3E2CFBA /* Geist-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Geist-Light.ttf"; path = "../assets/fonts/Geist-Light.ttf"; sourceTree = "<group>"; };
 		58FB36A20DB04BE1836ABA6D /* Geist-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Geist-Medium.ttf"; path = "../assets/fonts/Geist-Medium.ttf"; sourceTree = "<group>"; };
 		727A0E1E658741478F02E084 /* Geist-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Geist-ExtraLight.ttf"; path = "../assets/fonts/Geist-ExtraLight.ttf"; sourceTree = "<group>"; };
-		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ScanCook/AppDelegate.swift; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ScanCook/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = NonnaInstantlyWhipRecipes/AppDelegate.swift; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = NonnaInstantlyWhipRecipes/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A65C5C65823421CA5BA5CF7 /* Geist-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Geist-Regular.ttf"; path = "../assets/fonts/Geist-Regular.ttf"; sourceTree = "<group>"; };
 		8D80ACA300504D61BD94C1C2 /* GeistMono-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "GeistMono-Thin.ttf"; path = "../assets/fonts/GeistMono-Thin.ttf"; sourceTree = "<group>"; };
 		95E70CF53689447AB3943AF6 /* Geist-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Geist-Black.ttf"; path = "../assets/fonts/Geist-Black.ttf"; sourceTree = "<group>"; };
 		9861D3E4AF744C0486F37367 /* GeistMono-UltraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "GeistMono-UltraLight.ttf"; path = "../assets/fonts/GeistMono-UltraLight.ttf"; sourceTree = "<group>"; };
 		9D3886777E844B3487AF0E9F /* GeistMono-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "GeistMono-Regular.ttf"; path = "../assets/fonts/GeistMono-Regular.ttf"; sourceTree = "<group>"; };
-		A7AB503420EC34B8DDEE9C7C /* Pods-ScanCook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanCook.debug.xcconfig"; path = "Target Support Files/Pods-ScanCook/Pods-ScanCook.debug.xcconfig"; sourceTree = "<group>"; };
+		A7AB503420EC34B8DDEE9C7C /* Pods-NonnaInstantlyWhipRecipes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NonnaInstantlyWhipRecipes.debug.xcconfig"; path = "Target Support Files/Pods-NonnaInstantlyWhipRecipes/Pods-NonnaInstantlyWhipRecipes.debug.xcconfig"; sourceTree = "<group>"; };
 		AFFE0213BE924144A2CFAD22 /* GeistMono-UltraBlack.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "GeistMono-UltraBlack.ttf"; path = "../assets/fonts/GeistMono-UltraBlack.ttf"; sourceTree = "<group>"; };
 		B9BA08BD005D4A678D8AEC23 /* GeistMono-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "GeistMono-Black.ttf"; path = "../assets/fonts/GeistMono-Black.ttf"; sourceTree = "<group>"; };
 		C13A4D196F5E422E838C1A88 /* GeistMono-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "GeistMono-Medium.ttf"; path = "../assets/fonts/GeistMono-Medium.ttf"; sourceTree = "<group>"; };
@@ -68,14 +68,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9EE2D0014155513CB6C0D4E /* libPods-ScanCook.a in Frameworks */,
+				C9EE2D0014155513CB6C0D4E /* libPods-NonnaInstantlyWhipRecipes.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13B07FAE1A68108700A75B9A /* ScanCook */ = {
+		13B07FAE1A68108700A75B9A /* NonnaInstantlyWhipRecipes */ = {
 			isa = PBXGroup;
 			children = (
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -84,14 +84,14 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 			);
-			name = ScanCook;
+			name = NonnaInstantlyWhipRecipes;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				26799EFD07B8563B4A895D8D /* libPods-ScanCook.a */,
+				26799EFD07B8563B4A895D8D /* libPods-NonnaInstantlyWhipRecipes.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -131,7 +131,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* ScanCook */,
+				13B07FAE1A68108700A75B9A /* NonnaInstantlyWhipRecipes */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
@@ -146,7 +146,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* ScanCook.app */,
+				13B07F961A680F5B00A75B9A /* NonnaInstantlyWhipRecipes.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,8 +154,8 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A7AB503420EC34B8DDEE9C7C /* Pods-ScanCook.debug.xcconfig */,
-				42DC6D3BDFC35729DD8F6012 /* Pods-ScanCook.release.xcconfig */,
+				A7AB503420EC34B8DDEE9C7C /* Pods-NonnaInstantlyWhipRecipes.debug.xcconfig */,
+				42DC6D3BDFC35729DD8F6012 /* Pods-NonnaInstantlyWhipRecipes.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -163,9 +163,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* ScanCook */ = {
+		13B07F861A680F5B00A75B9A /* NonnaInstantlyWhipRecipes */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ScanCook" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "NonnaInstantlyWhipRecipes" */;
 			buildPhases = (
 				59388D679CE20B38EB7A7E4A /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
@@ -179,9 +179,9 @@
 			);
 			dependencies = (
 			);
-			name = ScanCook;
-			productName = ScanCook;
-			productReference = 13B07F961A680F5B00A75B9A /* ScanCook.app */;
+			name = NonnaInstantlyWhipRecipes;
+			productName = NonnaInstantlyWhipRecipes;
+			productReference = 13B07F961A680F5B00A75B9A /* NonnaInstantlyWhipRecipes.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -197,7 +197,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ScanCook" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "NonnaInstantlyWhipRecipes" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -210,7 +210,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* ScanCook */,
+				13B07F861A680F5B00A75B9A /* NonnaInstantlyWhipRecipes */,
 			);
 		};
 /* End PBXProject section */
@@ -269,15 +269,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ScanCook/Pods-ScanCook-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-NonnaInstantlyWhipRecipes/Pods-NonnaInstantlyWhipRecipes-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ScanCook/Pods-ScanCook-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-NonnaInstantlyWhipRecipes/Pods-NonnaInstantlyWhipRecipes-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ScanCook/Pods-ScanCook-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NonnaInstantlyWhipRecipes/Pods-NonnaInstantlyWhipRecipes-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		59388D679CE20B38EB7A7E4A /* [CP] Check Pods Manifest.lock */ = {
@@ -295,7 +295,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ScanCook-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-NonnaInstantlyWhipRecipes-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -308,15 +308,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ScanCook/Pods-ScanCook-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-NonnaInstantlyWhipRecipes/Pods-NonnaInstantlyWhipRecipes-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ScanCook/Pods-ScanCook-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-NonnaInstantlyWhipRecipes/Pods-NonnaInstantlyWhipRecipes-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ScanCook/Pods-ScanCook-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NonnaInstantlyWhipRecipes/Pods-NonnaInstantlyWhipRecipes-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -335,7 +335,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A7AB503420EC34B8DDEE9C7C /* Pods-ScanCook.debug.xcconfig */;
+			baseConfigurationReference = A7AB503420EC34B8DDEE9C7C /* Pods-NonnaInstantlyWhipRecipes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -344,8 +344,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 38SVMKKT24;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = ScanCook/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ScanCook;
+				INFOPLIST_FILE = NonnaInstantlyWhipRecipes/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NonnaInstantlyWhipRecipes;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -357,8 +357,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = ScanCook;
+				PRODUCT_BUNDLE_IDENTIFIER = com.depo.design;
+				PRODUCT_NAME = NonnaInstantlyWhipRecipes;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -368,7 +368,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 42DC6D3BDFC35729DD8F6012 /* Pods-ScanCook.release.xcconfig */;
+			baseConfigurationReference = 42DC6D3BDFC35729DD8F6012 /* Pods-NonnaInstantlyWhipRecipes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -376,8 +376,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 38SVMKKT24;
-				INFOPLIST_FILE = ScanCook/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ScanCook;
+				INFOPLIST_FILE = NonnaInstantlyWhipRecipes/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NonnaInstantlyWhipRecipes;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -389,8 +389,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = ScanCook;
+				PRODUCT_BUNDLE_IDENTIFIER = com.depo.design;
+				PRODUCT_NAME = NonnaInstantlyWhipRecipes;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -554,7 +554,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ScanCook" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "NonnaInstantlyWhipRecipes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -563,7 +563,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ScanCook" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "NonnaInstantlyWhipRecipes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
